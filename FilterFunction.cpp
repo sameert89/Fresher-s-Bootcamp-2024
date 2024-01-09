@@ -1,18 +1,29 @@
 #include <bits/stdc++.h>
 
-std::vector<int> filter(const std::vector<int> &nums, std::function<bool(int)> criteria) {
-    std::vector<int> result;
-    for(auto const &num: nums){
-        if(criteria(num)){
-            result.push_back(num);
+std::vector<std::string> filter(const std::vector<std::string> &words, std::function<bool(std::string)> criteria) {
+    std::vector<std::string> result;
+    for(auto const &word: words){
+        if(criteria(word)){
+            result.push_back(word);
         }
     }
     return result;
 }
 
+void printVector(std::vector<std::string> vec){
+    for(auto const &item: vec) {
+        std::cout<<item<<", ";
+    }
+}
+
 int main()
 {
-    std::vector<int> nums = {1, 7, 55, 22, 12, 24, 16};
-    std::vector<int> evenNums = filter(nums, [](int e){ return a%2 == 0; });
+    std::vector<std::string> words = {"Tiger", "Lion", "Ranger", "Dictator", "Blue", "Foo"};
+    std::function<bool(std::string)> endsWithVowel = [](std::string s){
+        std::unordered_set<char> vowels({'a', 'e', 'i', 'o', 'u'});
+        return vowels.find(s.back()) != vowels.end();
+    };
+    std::vector<std::string> wordsEndingInVowel = filter(words, endsWithVowel);
+    printVector(wordsEndingInVowel);
     return 0;
 }
