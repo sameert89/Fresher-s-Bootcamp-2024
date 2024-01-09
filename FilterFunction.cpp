@@ -24,6 +24,6 @@ int main()
         return vowels.find(s.back()) != vowels.end();
     };
     std::vector<std::string> wordsEndingInVowel = filter(words, endsWithVowel);
-    printVector(wordsEndingInVowel);
+    printVectorToConsole(wordsEndingInVowel);
     return 0;
 }
