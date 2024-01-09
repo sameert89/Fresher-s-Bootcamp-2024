@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-std::vector<std::string> filter(const std::vector<std::string> &words, std::function<bool(std::string)> criteria) {
+std::vector<std::string> filterVectorOfStrings(const std::vector<std::string> &words, std::function<bool(std::string)> criteria) {
     std::vector<std::string> result;
     for(auto const &word: words){
         if(criteria(word)){
@@ -10,7 +10,7 @@ std::vector<std::string> filter(const std::vector<std::string> &words, std::func
     return result;
 }
 
-void printVector(std::vector<std::string> vec){
+void printVectorOfStrings(std::vector<std::string> vec){
     for(auto const &item: vec) {
         std::cout<<item<<", ";
     }
