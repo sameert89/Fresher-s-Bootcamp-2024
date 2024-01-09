@@ -21,6 +21,6 @@ _"POS Billing system is an embedded system which can be used to process payments
 - *UI:* How easy is the UI for the cashiers, this reduces errors during rush hour of sales.
 
 ## Use Case Diagram
-<img src = "https://imgur.com/23b9f46a-df98-4d2a-b8c3-3861b6d04741">
+<img src = "https://i.imgur.com/VDTQbA4.png">
 
 - Sameer Trivedi (127225) VTS R&D
