@@ -1,4 +1,4 @@
-const search = (arr, callback) => {
+const filter = (arr, callback) => {
     const result = [];
     for(const e of arr){
         if(callback(e))
