@@ -15,6 +15,10 @@ void printVectorToConsole(std::vector<std::string> vec){
         std::cout<<item<<", ";
     }
 }
+std::function<bool(std::string)> checkStringStartWithAny(std::string startString){
+std::function<bool(std::string)> predicateFunObj=[&](std:string stringItem) { return stringItem.starts_with(startString);  } 
+    return predicateFunObj;
+}
 
 int main()
 {
@@ -24,6 +28,9 @@ int main()
         return vowels.find(s.back()) != vowels.end();
     };
     std::vector<std::string> wordsEndingInVowel = filterVectorOfStrings(words, endsWithVowel);
+    std::function<bool(std::string)> startsWithR =checkStringStartWithAny("R");
+    std::vector<std::string> wordsStartWithR= filterVectorOfStrings(words, startsWithR);
+    printVectorToConsole(wordsStartWithR);
     printVectorToConsole(wordsEndingInVowel);
     return 0;
 }
