@@ -10,7 +10,7 @@ std::vector<std::string> filterVectorOfStrings(const std::vector<std::string> &w
     return result;
 }
 
-void printVectorOfStringsToConsole(std::vector<std::string> vec){
+void printVectorToConsole(std::vector<std::string> vec){
     for(auto const &item: vec) {
         std::cout<<item<<", ";
     }
