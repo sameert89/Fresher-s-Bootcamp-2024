@@ -4,7 +4,7 @@ std::vector<int> search(const std::vector<int> &arr, std::function<bool(int)> cr
     std::vector<int> result;
     for(auto const &ele: arr){
         if(criteria(ele))
-            arr.push_back(ele);
+            result.push_back(ele);
     }
     return result;
 }
