@@ -18,7 +18,7 @@ _"POS Billing system is an embedded system which can be used to process payments
 ## Non-Functional Requirements
 - *Security:* Security in transaction, end to end encryption etc.
 - *Reliability:* Reduce Transaction Failures and downtime.
-- *UI:* How easy is the UI for the cashiers, this reduces errors during rush hour of sales.
+- *Accesibility:* How easy is the UI for the cashiers, this reduces errors during rush hour of sales.
 
 ## Use Case Diagram
 <img src = "https://i.imgur.com/VDTQbA4.png">
