@@ -23,7 +23,7 @@ int main()
         std::unordered_set<char> vowels({'a', 'e', 'i', 'o', 'u'});
         return vowels.find(s.back()) != vowels.end();
     };
-    std::vector<std::string> wordsEndingInVowel = filter(words, endsWithVowel);
+    std::vector<std::string> wordsEndingInVowel = filterVectorOfStrings(words, endsWithVowel);
     printVectorToConsole(wordsEndingInVowel);
     return 0;
 }
