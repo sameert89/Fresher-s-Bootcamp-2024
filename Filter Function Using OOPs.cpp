@@ -3,19 +3,9 @@
 
 using namespace std;
 
-class Services{
-private:
-    vector<string> serviceList;
-    Services(vector<string> serviceList){
-        this.serviceList = vector<string>(serviceList);
-    }
-    vector<string> filterServices(function<bool(string)> filterCallback){
-        return VectorMethods<string>().filter(this.serviceList, filterCallback);
-    }
-};
 class StringPredicates{
     public:
-    bool endsWith(const string &s, char ch){
+    function<bool(string)> endsWith(char ch){
         return [&](string s){return s.back() == ch;};
     }
 };
@@ -42,6 +32,18 @@ class UtilityFunctions{
             cout << endl;
         }
 };
+
+class Services{
+public:
+    vector<string> serviceList;
+    Services(vector<string> serviceList){
+        this->serviceList = vector<string>(serviceList);
+    }
+    vector<string> filterServices(function<bool(string)> filterCallback){
+        return VectorMethods<string>().filter(this->serviceList, filterCallback);
+    }
+};
+
 
 int main()
 {
