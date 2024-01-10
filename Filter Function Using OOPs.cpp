@@ -2,8 +2,8 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-/*
--------- CORRECTIONS ---------
+
+// -------- CORRECTIONS ---------
 class ConsoleDisplayController{
 private:
     string content = "";
@@ -29,12 +29,22 @@ public
     }
 };
 class StringListFilterController{
+    private:
+        StartsWithStrategy SS;
     public:
-        vector<string> filter(vector<string> StrList){
-        
+        vector<string> filter(vector<string> strList){
+            SS.setStartsWith('t');
+            vector<string> result;
+            for(auto const &str: strList){
+                if(SS.invoke(str)) {
+                    result.push_back(str);
+                }
+            }
+            return result;
         }
 };
-*/
+/*
+--------- ORIGINAL CODE -----------
 class StringPredicates{
     public:
     function<bool(string)> endsWith(char ch){
@@ -84,3 +94,4 @@ int main()
     UtilityFunctions().displayVectorToConsole(socialMediaServicesEndsWithm);
     return 0;
 }
+*/
