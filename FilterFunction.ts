@@ -4,11 +4,11 @@ const checkStartsWithAny = (startString: string) => {
     return predicateFunctionObject;
 }
 
-const filterArrayOfStrings = (words: string[], criteria: (stringItem: string) => boolean) => {
+const filterArrayOfStrings = (stringArray: string[], criteria: (stringItem: string) => boolean) => {
     const filteredArray: string[] = [];
-    for(const word of words){
-        if(criteria(word)){
-            filteredArray.push(word);
+    for(const element of stringArray){
+        if(criteria(element)){
+            filteredArray.push(element);
         }
     }
     return filteredArray;
