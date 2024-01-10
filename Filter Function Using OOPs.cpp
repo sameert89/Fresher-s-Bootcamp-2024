@@ -2,7 +2,22 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
+/*
+-------- CORRECTIONS ---------
+class ConsoleDisplayController{
+private:
+    string content = "";
+public:
+    void setContent(string msg) {
+        this.content = msg;
+    }
+    void display() {
+        for(auto const &e: this.content) {
+            cout << e << ",";
+        }
+    }
+};
+*/
 class StringPredicates{
     public:
     function<bool(string)> endsWith(char ch){
