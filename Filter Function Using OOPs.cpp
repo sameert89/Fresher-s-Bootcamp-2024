@@ -10,8 +10,7 @@ private:
         this->socialMediaServices = vector<string>(serviceList);
     }
     vector<string> filterServices(function(bool<string>) filterCallback){
-        VectorMethods()<string>.filter(this->socialMediaServices, filterCallback);
-        UtilityFunctions().displayVectorToConsole()
+        return VectorMethods()<string>.filter(this->socialMediaServices, filterCallback);
     }
 };
 class StringPredicates{
