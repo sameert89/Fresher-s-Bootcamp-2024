@@ -32,14 +32,12 @@ class UtilityFunctions{
             cout << endl;
         }
 };
+
 int main()
 {
     vector<string> services = {"fiverr", "youtube", "tinder", "facebook", "snapchat", "uber"};
-    VectorMethods<string> servicesVM;
-    StringMethods servicesSM;
-    vector<string> filteredServices = servicesVM.filter(services, 
-                                                [&](string s){return servicesSM.endsWith(s, 'r');});
-    UtilityFunctions servicesUF;
-    servicesUF.displayVectorToConsole(filteredServices);
+    vector<string> filteredServices = VectorMethods<string>().filter(services, 
+                                                [&](string s){return StringMethods().endsWith(s, 'r');});
+    UtilityFunctions().displayVectorToConsole(filteredServices);
     return 0;
 }
