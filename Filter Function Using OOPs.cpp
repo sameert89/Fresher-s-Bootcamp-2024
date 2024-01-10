@@ -13,7 +13,7 @@ public:
 class StartsWithStrategy : public SearchStrategy{
 private:
     string startsWith;
-public
+public:
     void setStartsWith(string key){
         this->startsWith = key;
     }
