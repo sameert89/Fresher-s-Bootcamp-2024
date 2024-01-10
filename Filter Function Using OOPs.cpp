@@ -17,6 +17,23 @@ public:
         }
     }
 };
+class StartsWithStrategy{
+private:
+    string startsWith;
+public
+    void setStartsWith(string key){
+        this->startsWith = key;
+    }
+    bool invoke(string item){
+        return item.find(this->startsWith) == 0;
+    }
+};
+class StringListFilterController{
+    public:
+        vector<string> filter(vector<string> StrList){
+        
+        }
+};
 */
 class StringPredicates{
     public:
