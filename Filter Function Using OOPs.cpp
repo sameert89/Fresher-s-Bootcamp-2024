@@ -7,7 +7,7 @@ class Services{
 private:
     vector<string> serviceList;
     Services(vector<string> serviceList){
-        this->socialMediaServices = vector<string>(serviceList);
+        this->serviceList = vector<string>(serviceList);
     }
     vector<string> filterServices(function(bool<string>) filterCallback){
         return VectorMethods()<string>.filter(this->socialMediaServices, filterCallback);
