@@ -3,10 +3,21 @@
 
 using namespace std;
 
-class StringMethods{
+class Services{
+private:
+    vector<string> serviceList;
+    Services(vector<string> serviceList){
+        this->socialMediaServices = vector<string>(serviceList);
+    }
+    vector<string> filterServices(function(bool<string>) filterCallback){
+        VectorMethods()<string>.filter(this->socialMediaServices, filterCallback);
+        UtilityFunctions().displayVectorToConsole()
+    }
+};
+class StringPredicates{
     public:
     bool endsWith(const string &s, char ch){
-        return s.back() == ch;
+        return [&](string s){return s.back() == ch;};
     }
 };
 template<typename T>
@@ -35,9 +46,8 @@ class UtilityFunctions{
 
 int main()
 {
-    vector<string> services = {"fiverr", "youtube", "tinder", "facebook", "snapchat", "uber"};
-    vector<string> filteredServices = VectorMethods<string>().filter(services, 
-                                                [&](string s){return StringMethods().endsWith(s, 'r');});
-    UtilityFunctions().displayVectorToConsole(filteredServices);
+    Services SocialMedia({"Instagram", "Facebook", "Telegram", "Signal", "Snapchat"});
+    vector<string> socialMediaServicesEndsWithm = SocialMedia.filterServices(StringPredicates().endsWith('m'));
+    UtilityFunctions().displayVectorToConsole(socialMediaServicesEndsWithm);
     return 0;
 }
