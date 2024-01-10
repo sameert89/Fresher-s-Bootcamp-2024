@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// -------- CORRECTIONS ---------
+/* -------- CORRECTIONS ---------*/
 class ConsoleDisplayController{
 private:
     string content = "";
@@ -43,8 +43,7 @@ class StringListFilterController{
             return result;
         }
 };
-/*
---------- ORIGINAL CODE -----------
+/* --------- ORIGINAL CODE ----------- */
 class StringPredicates{
     public:
     function<bool(string)> endsWith(char ch){
@@ -94,4 +93,3 @@ int main()
     UtilityFunctions().displayVectorToConsole(socialMediaServicesEndsWithm);
     return 0;
 }
-*/
