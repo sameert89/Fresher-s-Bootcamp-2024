@@ -9,10 +9,10 @@ private:
     string content = "";
 public:
     void setContent(string msg) {
-        this.content = msg;
+        this->content = msg;
     }
     void display() {
-        for(auto const &e: this.content) {
+        for(auto const &e: this->content) {
             cout << e << ",";
         }
     }
