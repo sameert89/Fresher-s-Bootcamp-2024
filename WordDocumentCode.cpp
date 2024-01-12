@@ -3,6 +3,37 @@
 
 using namespace std;
 
+// concrete components' forward declaration
+class Header;
+class Footer;
+class Hyperlink;
+class Paragraph;
+
+
+class Converter{
+public:
+    virtual void convert(Header*) = 0;
+    virtual void convert(Paragraph*) = 0;
+    virtual void convert(Footer*) = 0;
+    virtual void convert(Hyperlink*) = 0;
+};
+
+class HTMLConverter : public Converter{
+    void convert(Header*){
+        // conversion code
+    }
+    void convert(Paragraph*){
+        // conversion code
+    }
+    void convert(Footer*){
+        // conversion code
+    }
+    void convert(Hyperlink*){
+        // conversion code
+    }
+};
+
+
 class DocumentPart{
 private:
     string name;
@@ -10,27 +41,41 @@ private:
 public:
     virtual void paint() = 0;
     virtual void save() = 0;
-}
+    void convert(Converter*);
+};
+
 class WordDocument{
 private:
     vector<DocumentPart*> partList;
+    Converter* converterObjRef;
 public:
-    void open();
-    void save();
+    void open(){
+        for(auto docPart: partList){
+            docPart->paint();
+        }
+    }
+    void save(){
+        for(auto docPart: partList){
+            docPart->save();
+        }
+    }
+    void addPart(DocumentPart* documentPartObjRef) {
+        this->partList.push_back(documentPartObjRef);
+    }
+    void convert(Converter* ConverterRef, HTMLConverter *HTMLConverterObjRef){
+        converterObjRef = HTMLConverterObjRef;
+        for(auto docPart: partList){
+            docPart->convert(ConverterRef);
+        }
+    }
 };
-void WordDocument::open(){
-    for(auto docPart: partList){
-        docPart->paint();
-    }
-}
-void WordDocument::save(){
-    for(auto docPart: partList){
-        docPart->save();
-    }
-}
 
 class Header : public DocumentPart{
     string title;
+    public:
+    void convert(Converter* converterRef){
+        converterRef->convert(this);
+    }
     void paint(){
         // display element
     }
@@ -40,6 +85,10 @@ class Header : public DocumentPart{
 };
 class Footer : public DocumentPart{
     string text;
+    public:
+    void convert(Converter *converterRef){
+        converterRef->convert(this);
+    }
     void paint(){
         // display element
     }
@@ -50,6 +99,10 @@ class Footer : public DocumentPart{
 class Paragraph : public DocumentPart{
     string content;
     int lines;
+    public:
+    void convert(Converter *converterRef){
+        converterRef->convert(this);
+    }
     void paint(){
         // display element
     }
@@ -59,6 +112,10 @@ class Paragraph : public DocumentPart{
 };
 class Hyperlink : public DocumentPart{
     string link;
+    public:
+    void convert(Converter *converterRef){
+        converterRef->convert(this);
+    }
     void paint(){
         // display element
     }
@@ -68,9 +125,15 @@ class Hyperlink : public DocumentPart{
 };
 
 
+
+
+
+
 int main()
 {
     cout<<"Hello World";
 
     return 0;
 }
+
+// Overloading and this argument
