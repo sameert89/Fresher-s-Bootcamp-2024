@@ -62,7 +62,7 @@ public:
     void addPart(DocumentPart* documentPartObjRef) {
         this->partList.push_back(documentPartObjRef);
     }
-    void convert(Converter* ConverterRef, HTMLConverter *HTMLConverterObjRef){
+    void convert(Converter* ConverterRef, HTMLConverter *HTMLConverterObjRef){ // Responsibility of Instantiator of WordDoc object to pass this for Dependency Injection
         converterObjRef = HTMLConverterObjRef;
         for(auto docPart: partList){
             docPart->convert(ConverterRef);
