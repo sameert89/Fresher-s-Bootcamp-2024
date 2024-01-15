@@ -19,7 +19,7 @@ class Thread{
         string state;
         int priority;
         vector<IObserver*> observers;
-        void notify(){
+        void notify(string state){
             for(auto IObserverObjRef: observers){
                 IObserverObjRef->update(this->state);
             }
