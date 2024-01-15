@@ -19,7 +19,7 @@ class Thread{
         string state;
         int priority;
         vector<IObserver*> observers;
-        void notify(string state){
+        void notify(){
             for(auto IObserverObjRef: observers){
                 IObserverObjRef->update(this->state);
             }
@@ -27,30 +27,30 @@ class Thread{
     public:
         Thread(){
             this->state = "created";
-            this->notify(this->state);
+            this->notify();
         }
         void start(){
             this->state = "running";
-            this->notify(this->state);
+            this->notify();
         }
         void abort(){
             this->state = "aborted";
-            this->notify(this->state);
+            this->notify();
         }
         void sleep(int t){
             this->state = "sleeping";
-            this->notify(this->state);
+            this->notify();
             sleep(t/1000);
             this->state = "running";
-            this->notify(this->state);
+            this->notify();
         }
         void wait(){
             this->state = "waiting";
-            this->notify(this->state);
+            this->notify();
         }
         void suspended(){
             this->state = "suspended";
-            this->notify(this->state);
+            this->notify();
         }
         void subscribe(IObserver* IObserverObjRef){
             this->observers.push_back(IObserverObjRef);
