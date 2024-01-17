@@ -21,29 +21,48 @@ namespace ECommerce
                     case 1:
                         Console.WriteLine("Enter product ID:");
                         int prodID = Convert.ToInt32(Console.ReadLine());
-
-                        Console.WriteLine("Enter warranty:");
+			
+			if(prodID < 0)
+				throw new Exception("Product ID cannot be negative);
+						    
+                        Console.WriteLine("Enter warranty (months):");
                         int warranty = Convert.ToInt32(Console.ReadLine());
+
+			if(warranty < 0)
+				throw new Exception("Warranty cannot be less than or equal to zero");
 
                         Console.WriteLine("Enter item stock:");
                         int itemStock = Convert.ToInt32(Console.ReadLine());
 
+			if(itemStock < 0)
+				throw new Exception("itemStock canot be less than 0");
+
                         Console.WriteLine("Enter GST percent:");
                         int gstPercent = Convert.ToInt32(Console.ReadLine());
+
+			if(! new []{5, 12, 18, 28}.Contains(gstPercent))
+				throw new Exception("gst can be only 5, 12, 18, 28 %");
 
                         Console.WriteLine("Enter discount percent:");
                         int discountPercent = Convert.ToInt32(Console.ReadLine());
 
+			if(discountPercent < 0)
+				throw new Exception("discount Percent cannot be negative");
+
                         Console.WriteLine("Enter product name:");
                         string name = Console.ReadLine();
 
-                        Console.WriteLine("Enter manufacturing date:");
+
+                        Console.WriteLine("Enter manufacturing date(YY/MM/DD):");
                         string mfgDate = Console.ReadLine();
 
                         Console.WriteLine("Enter price:");
                         double price = Convert.ToDouble(Console.ReadLine());
 
-                        Console.WriteLine("Enter tax value:");
+			if(price < 0)
+				throw new exception("price cannot be less than equal to 0");
+
+                        Console.WriteLine("Enter tax %:");
                         double taxVal = Convert.ToDouble(Console.ReadLine());
 
                         products.Add(new Product(prodID, warranty, itemStock, gstPercent, discountPercent, name, mfgDate, price, taxVal));
