@@ -8,7 +8,7 @@ namespace ECommerce
 	private int _prodID, _warranty, _itemStock, _gstPercent, _discountPercent;
 	private string _name, _mfgDate;
 	private double _price, _taxVal, _discountVal;
-	internal Product(int prodID, int warranty, int itemStock, int gstPercent, int discountPercent, string name, string mfgDate, double price, double taxVal){
+	internal Product(int prodID, int warranty, int itemStock, int gstPercent, int discountPercent, string name, string mfgDate, double price){
 		this._prodID = prodID;
 		this._warranty = warranty;
 		this._itemStock = itemStock;
