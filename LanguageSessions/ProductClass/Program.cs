@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ECommerce
 {
@@ -23,7 +24,7 @@ namespace ECommerce
                         int prodID = Convert.ToInt32(Console.ReadLine());
 			
 			if(prodID < 0)
-				throw new Exception("Product ID cannot be negative);
+				throw new Exception("Product ID cannot be negative");
 						    
                         Console.WriteLine("Enter warranty (months):");
                         int warranty = Convert.ToInt32(Console.ReadLine());
