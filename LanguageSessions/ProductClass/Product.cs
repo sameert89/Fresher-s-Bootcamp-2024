@@ -5,7 +5,8 @@ namespace ECommerce
 {
     internal class Product
     {
-	private int _prodID, _warranty, _itemStock, _gstPercent, _discountPercent;
+    public int _prodID{ get; private set;}
+	private int  _warranty, _itemStock, _gstPercent, _discountPercent;
 	private string _name, _mfgDate;
 	private double _price, _taxVal, _discountVal;
 	internal Product(int prodID, int warranty, int itemStock, int gstPercent, int discountPercent, string name, string mfgDate, double price){
