@@ -62,10 +62,7 @@ namespace ECommerce
 			if(price < 0)
 				throw new exception("price cannot be less than equal to 0");
 
-                        Console.WriteLine("Enter tax %:");
-                        double taxVal = Convert.ToDouble(Console.ReadLine());
-
-                        products.Add(new Product(prodID, warranty, itemStock, gstPercent, discountPercent, name, mfgDate, price, taxVal));
+                        products.Add(new Product(prodID, warranty, itemStock, gstPercent, discountPercent, name, mfgDate, price));
                         break;
 
                     case 2:
