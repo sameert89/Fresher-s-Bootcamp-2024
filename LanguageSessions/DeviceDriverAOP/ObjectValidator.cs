@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace DeviceDriver
 {
@@ -14,11 +14,12 @@ namespace DeviceDriver
             {
                 object[] attributes = property.GetCustomAttributes(typeof(ValidationAttribute), false); // typeof className gives metadata
 
-                foreach (ValidationAttribute attr in attributes)
+                foreach (var attr in attributes)
                 {
-                    if (!attr.isValid(property.GetValue(obj)))
+                    ValidationAttribute vAttr = attr as ValidationAttribute;
+                    if (!vAttr.isValid(property.GetValue(obj)))
                     {
-                        errors.Add(attr.ErrorMessage);
+                        errors.Add(vAttr.ErrorMessage);
                     }
                 }
             }
