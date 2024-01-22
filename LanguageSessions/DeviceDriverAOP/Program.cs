@@ -17,11 +17,15 @@ namespace DeviceDriver
         [MaxLength(100, "Max of 100 Charcters are allowed")]
         public string Description { get; set; }
 
-        public Device(string Id, int Code, string Description)
+        [Regex("^Z[A-Z]{3}\\d{12}$", "Barcode should start with 4 alphabets, Z being the first & End with 12 digits")]
+        public string BarCode { get; set; }
+
+        public Device(string Id, int Code, string Description, string BarCode)
         {
             this.Id = Id;
             this.Code = Code;
             this.Description = Description;
+            this.BarCode = BarCode;
         }
 
     }
@@ -46,7 +50,10 @@ namespace DeviceDriver
             Console.WriteLine("Please Enter the Device Description");
             string Description = Console.ReadLine();
 
-            Device deviceObj = new Device(Id, Code, Description);
+            Console.WriteLine("Please Enter the Device BarCode");
+            string BarCode = Console.ReadLine();
+
+            Device deviceObj = new Device(Id, Code, Description, BarCode);
             List<string> errors;
             bool isValid = ObjectValidator.Validate(deviceObj,out errors);
             if (!isValid)
