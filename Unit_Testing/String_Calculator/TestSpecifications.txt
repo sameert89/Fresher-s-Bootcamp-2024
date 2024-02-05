@@ -17,7 +17,7 @@ THEN: Result = 6
 
 GIVEN: "1,\n"
 WHEN: Add Called
-THEN: Result = InvalidParameterException()
+THEN: Result = InvalidParameterException("Input String is Not in Proper Format")
 
 GIVEN: "//;\n1;2"
 WHEN: Add Called
